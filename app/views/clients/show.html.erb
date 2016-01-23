@@ -1,0 +1,9 @@
+<h1><%= @client.name %></h1>
+<h3>You owe: <%= @client.balance %></h3>
+<h4>Time entries</h4>
+<ul>
+  <% @client.time_entries.reverse.each do |entry| %>
+  <li><%= "#{entry.time} at $#{entry.rate.floor} /hr" %></li>
+  <% end %>
+</ul>
+<h3>Historic hours worked: <%= @client.time_entries.sum(:time) %> hours</h3>
