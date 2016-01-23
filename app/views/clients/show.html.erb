@@ -1,9 +1,37 @@
-<h1><%= @client.name %></h1>
-<h3>You owe: <%= @client.balance %></h3>
-<h4>Time entries</h4>
-<ul>
-  <% @client.time_entries.reverse.each do |entry| %>
-  <li><%= "#{entry.time} at $#{entry.rate.floor} /hr" %></li>
-  <% end %>
-</ul>
-<h3>Historic hours worked: <%= @client.time_entries.sum(:time) %> hours</h3>
+<h3 class="client-name"><%= @client.name %></h3>
+<div class="content">
+  <div class="entry-list">
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Time (hours)</th>
+        <th>Rate</th>
+        <th>Total</th>
+      </tr>
+      <% @client.time_entries.reverse.each do |entry| %>
+      <tr>
+        <td><%= entry.created_at.strftime('%m/%d/%y') %></td>
+        <td><%= entry.description %></td>
+        <td><%= entry.time %></td>
+        <td><%= sprintf('%.2f', entry.rate) %></td>
+        <td class="total"><%= sprintf('%.2f', entry.total) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="shoulder-bar">
+    <div class="balance">
+      <span>$<%= sprintf('%.2f', @client.balance) %></span>
+    </div>
+    <div class="statistics">
+      <ul>
+        <li>Historic hours worked: <%= @client.time_entries.sum(:time) %></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</div>

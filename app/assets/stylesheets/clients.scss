@@ -1,3 +1,98 @@
 // Place all the styles related to the Clients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Declaring variables
+// Colors
+$gray: #BEBEBE;
+$dark-gray: #303841;
+$light-gray: #E8E8E8;
+
+$light-green: #63cb89;
+$dark-green: #164224;
+
+
+// Typefaces
+$logo: 'Lobster', cursive;
+$text: 'Lato', sans-serif;
+
+body {
+  color: $dark-gray;
+  font-family: $text;
+  margin: 0;
+}
+
+h1 {
+  font-family: $logo;
+}
+
+h3.client-name {
+  font-size: 1.6em;
+}
+
+div.wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+div.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.entry-list {
+  background-color: $light-gray;
+  width: calc(65% - 20px);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: auto;
+  
+  table {
+    width: 100%;
+    text-align: center;
+
+    td, th {
+      width: 20%;
+    }
+
+    td.total {
+      font-weight: bold;
+    }
+  }
+}
+
+div.shoulder-bar {
+  width: 32.5%;
+  border-radius: 10px;
+}
+
+div.statistics {
+  background-color: $light-gray;
+  margin-top: 23px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border-radius: 10px;
+
+  ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+div.balance {
+  background-color: green;
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: $light-green;
+
+  span {
+    font-size: 1.6em;
+    color: $dark-green;
+  }
+}
+
